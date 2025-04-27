@@ -9,5 +9,4 @@ const connection_1 = __importDefault(require("./db/connection"));
 app_1.default.listen(config_1.default.port, () => {
     console.log(`Server running on port ${config_1.default.port}`);
     (0, connection_1.default)();
-    // console.log('111');
 });
