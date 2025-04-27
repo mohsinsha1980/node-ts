@@ -16,7 +16,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/consolidate": "^0.14.4",
+    "@types/cookie-parser": "^1.4.8",
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
+    "@types/express-session": "^1.18.1",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.14.1",
     "dotenv": "^16.5.0",
@@ -32,6 +36,15 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "mongoose": "^8.13.2"
+    "body-parser": "^2.2.0",
+    "connect-mongo": "^5.1.0",
+    "consolidate": "^1.0.4",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "express-session": "^1.18.1",
+    "helmet": "^8.1.0",
+    "mongoose": "^8.13.2",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
   }
 }

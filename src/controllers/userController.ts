@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import UserModel from '../models/user';
+import log from '../services/logger';
 
 export const createUser = async (
   req: Request,
@@ -8,12 +9,27 @@ export const createUser = async (
 ) => {
   try {
     const { email, first_name, last_name } = req.body;
+    if (!email || !first_name || !last_name) {
+      log({
+        level: 'error',
+        user: 'Unknown User',
+        url: req?.method + ': ' + req?.originalUrl,
+        message: '*** createUser: Invalid data ***',
+      });
+    }
     const user = new UserModel({
       email,
       first_name,
       last_name,
     });
     const newUser = await user.save();
+
+    log({
+      level: 'info',
+      user: 'Unknown User',
+      url: req?.method + ': ' + req?.originalUrl,
+      message: '*** createUser: new user created ***',
+    });
 
     res.status(201).json(newUser);
   } catch (error) {
@@ -47,5 +63,3 @@ export const getUser = async (
     next(error);
   }
 };
-
-// export const deleteUser = async () => {};
